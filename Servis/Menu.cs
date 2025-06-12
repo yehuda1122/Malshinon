@@ -33,6 +33,9 @@ namespace Malshinon
                     case "3":
                         ServicePerson.GetSecretCodeByName();
                         break;
+                    case "4":
+                        Console.WriteLine("Analysis Dashboard is not implemented yet.");
+                        break;
                     case "5":
                         return;
                 }

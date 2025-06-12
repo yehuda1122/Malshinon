@@ -12,11 +12,11 @@ namespace Malshinon
         {
             Console.WriteLine("Enter Full Name or Secret Name For Reporter:");
             string NameReport = Console.ReadLine();
-            var ReporterId = PepolelDal.CheckIfExistsCodeNameOrName(NameReport);
+            var ReporterId = ServicePerson.CheckIfExistsCodeNameOrName(NameReport);
 
             Console.WriteLine("Enter Full Name or Secret Name For Target:");
             string NameTarget = Console.ReadLine();
-            var TargetId = PepolelDal.CheckIfExistsCodeNameOrName(NameTarget);
+            var TargetId = ServicePerson.CheckIfExistsCodeNameOrName(NameTarget);
 
             Console.WriteLine("Enrer The Report");
             string ReportText = Console.ReadLine();
@@ -27,5 +27,7 @@ namespace Malshinon
             ServiceAlerts.CheckIfIsDangerous(TargetId);
         }
 
+ 
     }
+        
 }

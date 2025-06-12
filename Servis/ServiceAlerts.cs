@@ -9,28 +9,6 @@ namespace Malshinon
 {
     internal class ServiceAlerts
     {
-        //public static void  CheckIfIsDangerousByName()
-        //{
-        //    Console.WriteLine("Enter FullName:");
-        //    string FullName = Console.ReadLine();
-        //    int IdTarget = 0;
-        //    if (PepolelDal.CheackIfFullNameExsist(FullName))
-        //    {
-        //        IdTarget = PepolelDal.CheckIfExistsCodeNameOrName(FullName);
-        //        int Num_mentions = PepolelDal.GetNum_mentions(IdTarget);
-
-        //        if (Num_mentions >= 20)
-        //        {
-        //            Console.WriteLine("Dangerous");
-        //        }
-
-        //        Console.WriteLine("Teh Person Not Dangerous ");
-
-        //    }
-        //    Console.WriteLine("The Name Not Exists");
-        //}
-
-
         public static void CheckIfIsDangerous(int TargetId)
         {
             int Num_mentions = PepolelDal.GetNum_mentions(TargetId);
@@ -40,4 +18,28 @@ namespace Malshinon
             }
         }
     }
+
+    // בדיקה אם אדם מסוכן לפי שם
+    //public static void  CheckIfIsDangerousByName()
+    //{
+    //    Console.WriteLine("Enter FullName:");
+    //    string FullName = Console.ReadLine();
+    //    int IdTarget = 0;
+    //    if (PepolelDal.CheackIfFullNameExsist(FullName))
+    //    {
+    //        IdTarget = PepolelDal.CheckIfExistsCodeNameOrName(FullName);
+    //        int Num_mentions = PepolelDal.GetNum_mentions(IdTarget);
+
+    //        if (Num_mentions >= 20)
+    //        {
+    //            Console.WriteLine("Dangerous");
+    //        }
+
+    //        Console.WriteLine("Teh Person Not Dangerous ");
+
+    //    }
+    //    Console.WriteLine("The Name Not Exists");
+    //}
+
+
 }

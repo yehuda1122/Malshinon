@@ -10,38 +10,33 @@ namespace Malshinon
 {
     static class PepolelDal
     {
-        public static int CheckIfExistsCodeNameOrName(string input)
+        public static int GetIdByFullName(string FullName)
         {
-            string sql = $"SELECT Id FROM people WHERE SecretCode = '{input}'";
+            string sql2 = $"SELECT Id FROM people WHERE FullName = '{FullName}'";
+            var result2 = DBConnection.Execute(sql2);
+            if (result2.Count > 0 && result2[0]["Id"] != null)
+            {
+                return Convert.ToInt32(result2[0]["Id"]);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public static int GetIdByCodeName(string codeName)
+        {
+            string sql = $"SELECT Id FROM people WHERE SecretCode = '{codeName}'";
             var result = DBConnection.Execute(sql);
 
             if (result.Count > 0 && result[0]["Id"] != null)
             {
                 return Convert.ToInt32(result[0]["Id"]);
             }
-
-            string sql2 = $"SELECT Id FROM people WHERE FullName = '{input}'";
-            var result2 = DBConnection.Execute(sql2);
-            if (result2.Count > 0 && result2[0]["Id"] != null)
+            else
             {
-                return Convert.ToInt32(result2[0]["Id"]);
+                return -1;
             }
-
-            PepolelDal.AddPerson(input, GetRandomGuid());
-
-            string sql3 = $"SELECT Id FROM people WHERE SecretCode = '{input}' OR FullName = '{input}'";
-            var result3 = DBConnection.Execute(sql3);
-            if (result3.Count > 0 && result3[0]["Id"] != null)
-            {
-                return Convert.ToInt32(result3[0]["Id"]);
-            }
-
-            throw new Exception("Could not create or find person");
-        }
-
-        public static string GetRandomGuid()
-        {
-            return Guid.NewGuid().ToString();
         }
 
         public static void AddPerson(string FullName, string SecretCode )
@@ -64,18 +59,30 @@ namespace Malshinon
             return "The Name Not Exists";
         }
 
-        public static bool CheackIfFullNameExsist(string fullName)
-        {
-            var sql = $"SELECT Id FROM people WHERE FullName = '{fullName}'";
-            var exsist = DBConnection.Execute(sql);
-            return exsist != null;
-
-        }
         public static int GetNum_mentions(int TargetId)
         {
             var Sql = $"SELECT num_mentions FROM people WHERE Id = {TargetId}";
             var Result = DBConnection.Execute(Sql);
             return Convert.ToInt32(Result[0]["num_mentions"]);
         }
+
+
+        //public static bool CheackIfFullNameExsist(string fullName)
+        //{
+        //    var sql = $"SELECT Id FROM people WHERE FullName = '{fullName}'";
+        //    var exsist = DBConnection.Execute(sql);
+        //    return exsist != null;
+
+        //}
+
+
+        //public static int CeckIfNeuExists(string FullName)
+        //{
+        //    // Return the new person's ID
+        //    string sql3 = $"SELECT Id FROM people WHERE FullName = '{FullName}'";
+        //    var result3 = DBConnection.Execute(sql3);
+
+        //    return Convert.ToInt32(result3[0]["Id"]);
+        //}
     }
-    }
+}

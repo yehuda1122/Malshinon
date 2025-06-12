@@ -29,8 +29,8 @@ namespace Malshinon
                 var text = parts[2];
                 if (!DateTime.TryParse(parts[3], null, System.Globalization.DateTimeStyles.AssumeLocal, out var ts)) continue;
                 if (string.IsNullOrWhiteSpace(reporter) || string.IsNullOrWhiteSpace(target) || string.IsNullOrWhiteSpace(text)) continue;
-                int reporterId = PepolelDal.CheckIfExistsCodeNameOrName(reporter);
-                int targetId = PepolelDal.CheckIfExistsCodeNameOrName(target);
+                int reporterId = ServicePerson.CheckIfExistsCodeNameOrName(reporter);
+                int targetId = ServicePerson.CheckIfExistsCodeNameOrName(target);
                 ReportDal.AddReport(reporterId, targetId, text);
                 count++;
                 ServiceAlerts.CheckIfIsDangerous(targetId);
