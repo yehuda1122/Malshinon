@@ -27,7 +27,7 @@ namespace Malshinon
                 return Convert.ToInt32(result2[0]["Id"]);
             }
 
-            ServicePerson.AddNewPerson(input);
+            PepolelDal.AddPerson(input, GetRandomGuid());
 
             string sql3 = $"SELECT Id FROM people WHERE SecretCode = '{input}' OR FullName = '{input}'";
             var result3 = DBConnection.Execute(sql3);
@@ -37,6 +37,11 @@ namespace Malshinon
             }
 
             throw new Exception("Could not create or find person");
+        }
+
+        public static string GetRandomGuid()
+        {
+            return Guid.NewGuid().ToString();
         }
 
         public static void AddPerson(string FullName, string SecretCode )
@@ -68,9 +73,9 @@ namespace Malshinon
         }
         public static int GetNum_mentions(int TargetId)
         {
-            var Sql = $"SELECT Num_mentions FROM people WHERE Id = {TargetId}";
+            var Sql = $"SELECT num_mentions FROM people WHERE Id = {TargetId}";
             var Result = DBConnection.Execute(Sql);
-            return Convert.ToInt32(Result[0]["Num_mentions"]);
+            return Convert.ToInt32(Result[0]["num_mentions"]);
         }
     }
     }

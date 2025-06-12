@@ -33,7 +33,8 @@ namespace Malshinon
                     case "3":
                         ServicePerson.GetSecretCodeByName();
                         break;
-
+                    case "5":
+                        return;
                 }
             }           
                             

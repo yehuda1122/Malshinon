@@ -24,7 +24,7 @@ namespace Malshinon
             ReportDal.AddReport(ReporterId, TargetId, ReportText);
             Console.WriteLine("submit report");
 
-            ServiceAlerts.CheckIfIsDangerous(ReporterId);
+            ServiceAlerts.CheckIfIsDangerous(TargetId);
         }
 
     }

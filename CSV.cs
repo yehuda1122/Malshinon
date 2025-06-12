@@ -33,7 +33,7 @@ namespace Malshinon
                 int targetId = PepolelDal.CheckIfExistsCodeNameOrName(target);
                 ReportDal.AddReport(reporterId, targetId, text);
                 count++;
-                //PepolelDal.GetNum_mentions(targetId);
+                ServiceAlerts.CheckIfIsDangerous(targetId);
             }
             //Logger.Log($"CSVImport: Imported {count} reports from {path}");
             //Console.WriteLine($"Imported {count} reports.\n");

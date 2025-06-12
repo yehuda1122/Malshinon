@@ -14,7 +14,7 @@ namespace Malshinon
         {
             DateTime CreatedAt = DateTime.Now;
 
-            var Sql = $"INSERT INTO alerts (TargetId,WindowStart ,WindowEnd , Reason" +
+            var Sql = $"INSERT INTO alerts (TargetId, Reason)" +
                 $"VALUES({TargetId},'{Reason}')";
             DBConnection.Execute(Sql);
         }
