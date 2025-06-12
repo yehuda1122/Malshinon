@@ -95,7 +95,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Servis\ServisForMenu.cs" />
+    <Compile Include="Dal\AlertsDal.cs" />
+    <Compile Include="CSV.cs" />
+    <Compile Include="Servis\ServiceAlerts.cs" />
+    <Compile Include="Servis\ServiceReport.cs" />
+    <Compile Include="Servis\ServicePerson.cs" />
     <Compile Include="Models\Alerts.cs" />
     <Compile Include="Dal\DBconnection.cs" />
     <Compile Include="Dal\PepolelDal.cs" />

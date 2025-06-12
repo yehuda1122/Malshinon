@@ -19,7 +19,11 @@ namespace Malshinon
             var updateSql = $"UPDATE people SET NumReport = NumReport + 1 WHERE Id = {ReporterId}";
             DBConnection.Execute(updateSql);
 
+            var updateSql1 = $"UPDATE people SET num_mentions = num_mentions + 1 WHERE Id = {TargetId}";
+            DBConnection.Execute(updateSql1);
+
+
+
         }
-       
     }
 }

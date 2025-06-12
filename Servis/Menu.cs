@@ -24,11 +24,14 @@ namespace Malshinon
                 var opt = Console.ReadLine();
                 switch (opt)
                 {
-                    case "1": ServisForMenu.AdData();
+                    case "1": ServiceReport.AdData();
+                        break;
+
+                    case "2": CSV.ImportCsv();
                         break;
 
                     case "3":
-                        ServisForMenu.GetSecretCodeByName();
+                        ServicePerson.GetSecretCodeByName();
                         break;
 
                 }
